@@ -1,4 +1,4 @@
-from telegram.ext import Application, CommandHandler
+from aiogram import Application, CommandHandler
 from config.settings import BOT_TOKEN
 from handlers.start import start, help_command
 from handlers.quiz import quiz_handler

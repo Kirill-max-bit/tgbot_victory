@@ -3,16 +3,16 @@ from aiogram.types import ContextTypes, ConversationHandler, Command
 from aiogram.handlers import CallbackQueryHandler
 from quiz_utils import load_questions, get_random_question
 
+ANSWERING = 0
 
-async def start_quiz(update: Update, context: ContextTypes.DEFAULT_TYPE) ->\
-      int:
+
+async def start_quiz(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     await update.message.reply_text("Добро пожаловать в викторину! "
                                     "Нажми /quiz, чтобы начать")
     return ConversationHandler.END
 
 
-async def quiz_update(update: Update, context: ContextTypes.DEFAULT_TYPE) ->\
-      int:
+async def quiz_update(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     questions = load_questions()
     if not questions:
         await update.message.reply_text("Вопросы не найдены!")
